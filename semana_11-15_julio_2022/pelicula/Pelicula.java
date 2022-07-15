@@ -15,7 +15,7 @@ package pelicula;
  */
 
 
-public class Pelicula {
+public class Pelicula implements Activar{
     
     private String titulo;
     private Double duracion;
@@ -70,7 +70,36 @@ public class Pelicula {
     }
 
 
+    @Override
+    public String toString() {
+        return "{" +
+            " titulo='" + getTitulo() + "'" +
+            ", duracion='" + getDuracion() + "'" +
+            ", estatus='" + isEstatus() + "'" +
+            ", genero='" + getGenero() + "'" +
+            ", director='" + getDirector() + "'" +
+            "}";
+    }
 
+    public void activar() {
+        this.estatus = true;
+    }
+
+    public void desactivar() {
+        this.estatus = false;
+    }
+
+    public Boolean isActivo(){
+        if (this.estatus == true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public Double compareTo(Pelicula p){
+        return p.duracion;
+    }
 
 
 }

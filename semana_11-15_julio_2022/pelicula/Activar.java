@@ -10,20 +10,12 @@ package pelicula;
 
 public interface Activar {
 
-    public static activar() {
-        estatus = true;
-    }
+    public activar();
 
-    public static desactivar() {
-        estatus = false;
-    }
+    public desactivar();
 
-    public default Boolean isActivo() {
-        return this.estatus;
-    }
+    public Boolean isActivo();
 
-    public compareTo(Object a) {
-        a.duracion;
-    }
+    public Double compareTo(Object a);
 
 }

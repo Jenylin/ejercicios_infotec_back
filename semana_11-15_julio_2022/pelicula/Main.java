@@ -9,7 +9,56 @@ package pelicula;
      * • Por último, indica el Videojuego con la mayor duración y la película que sean del género de terror y tenga mayor duración. Muestralos en pantalla con toda su información (usa el método toString()).
      */
 
-public class Main {
+public class Main{
+
+
+    public Boolean isActivo(){
+        if (this.estatus == true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static Object contar(Object[] arr) {
+        Integer contador = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[1].isActivo() == true){
+                contador += 1;
+            }else{
+                return arr[i];
+            }
+        }
+        System.out.println("Hay "+ contador + "peliculas o videojuegos activadas(os).");
+     }
+
+     public static void mayorDuracion(Object[] arr) {
+        Object mayorObj;
+        for (int i = 0; i < arr.length -1; i++) {
+            if(arr[i].duracion < arr[i+1].duracion){
+                mayorObj = arr[i+1];
+            }else if (arr[i].duracion > arr[i+1].duracion){
+                mayorObj = arr[i];
+            }
+        }
+        System.out.println("El videojuego con la mayor duración es: ");
+        mayorObj.toString();
+     }
+
+     public static void mayorDuracionTerror(Object[] arr) {
+        Object mayorObj;
+        for (int i = 0; i < arr.length -1; i++) {
+            if(arr[i].genero == "Terror"){
+                if(arr[i].duracion < arr[i+1].duracion){
+                    mayorObj = arr[i+1];
+                }else if (arr[i].duracion > arr[i+1].duracion){
+                    mayorObj = arr[i];
+                }
+            }
+        }
+        System.out.println("La película de terror con la mayor duración es: ");
+        mayorObj.toString();
+     }
     
     public static void main(String[] args) {
         
@@ -29,6 +78,19 @@ public class Main {
         videos[4] = new Videojuego("Among Us", 0.1, "party", "InnerSloth"); 
         videos[2] = new Videojuego("Fortnite", 0.5);
 
+        
+        pelis[1].activar();
+        pelis[3].activar();
+        pelis[4].activar();
+
+        videos[0].activar();
+        videos[1].activar();
+
+
+        contar(pelis);
+        contar(videos);
+        mayorDuracion(videos);
+        mayorDuracionTerror(pelis);
 
     }
 }
